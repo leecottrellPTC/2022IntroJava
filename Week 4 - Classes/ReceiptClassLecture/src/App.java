@@ -6,8 +6,7 @@ public class App {
         LineItem item1 = new LineItem("Milk", 4.5);
         LineItem item2 = new LineItem("cookies", 3);
         LineItem item3 = new LineItem();
-
-       // System.out.println("Created items " + item1.getCounter());
+        LineItem item4 = new LineItem("GitHub Desktop", 20000);
 
        System.out.println(item1.toString());
        System.out.println(item2.toString());
