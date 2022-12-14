@@ -35,6 +35,11 @@ public class ReadFile {
 
     public static void stats(){
         String aLine;
+        int aNum = 0;
+        int total = 0;
+        int min = 1999, max = -1099;
+        int counter = 0;
+        double avg = 0.0;
         try {
             File numbers = new File("c:\\data\\randnumbers.csv");
 
@@ -42,15 +47,50 @@ public class ReadFile {
             // all logic here
             while (data.hasNextLine()) {
                 // logic for each line
-                aLine = data.nextLine();
-                System.out.println(aLine);
+                //aLine = data.nextLine();
+                //System.out.println(aLine);
+            do{
+                try{
+                    aNum = data.nextInt();
+                    //System.out.println(aNum);    
+                }
+                catch(Exception ex){
+                    aNum = 0;//skip and set to 0
+                    data.nextLine();//just skip this line
+                    //counter --;//fix the count
+                }
+            }while(aNum == 0);
+            //the do while loop keeps looping when there is a problem in the file
+            
+            
+                //System.out.println(aNum);
+                total += aNum;
+                counter++;
+
+                if(aNum < min){
+                    min = aNum;
+                    //set current value to min
+                }
+                if(aNum > max){
+                    max = aNum;
+                }
+
+
             }
             data.close();
+            avg = total / (double)counter;
+            System.out.println("Total = " + total);
+            System.out.println("Count = " + counter);
+            System.out.printf("Average = %.2f\n", avg);
+            System.out.println("Smallest is " + min);
+            System.out.println("Max is is " + max);
+
         } catch (FileNotFoundException fex) {
             System.out.println(fex.toString());
             System.exit(-1);
         }
     }
+
     public static void main(String[] args) throws Exception {
         // readPoetry();
         stats();
