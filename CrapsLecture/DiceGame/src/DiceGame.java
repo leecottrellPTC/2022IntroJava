@@ -1,6 +1,7 @@
 import java.net.SocketTimeoutException;
 import java.util.Random;
 import java.util.Scanner;
+//install github repositories extension
 
 public class DiceGame {
 
@@ -43,7 +44,7 @@ public class DiceGame {
                     break;
                 default:
 
-                    point = total;
+                    point = -total;
                     System.out.println("Point " + point);
                     break;
             }
